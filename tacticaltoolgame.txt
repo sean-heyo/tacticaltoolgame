@@ -1,0 +1,30 @@
+"tacticaltoolgame"
+{
+	"base"		"base"
+	"title"		"Tactical Tool Game"
+	"maps"		"^ttg_"
+	"menusystem"	"1"
+	"workshopid"	""
+
+	"settings"
+	{
+		1
+		{
+			"name"		"ttg_var_devmode"
+			"text"		"Developer Mode"
+			"help"		"Enables developers mode (allows you to start the game with 1 person, noclip, etc)"
+			"type"		"CheckBox"
+			"default"	"0"
+		}
+
+		
+		2
+		{
+			"name"		"ttg_var_rounds"
+			"text"		"Rounds Per Game"
+			"help"		"Amount of rounds to play in one game (must restart map after changing this)"
+			"type"		"Numeric"
+			"default"	"4"
+		}
+	}
+}
