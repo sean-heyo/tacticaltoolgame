@@ -15,6 +15,7 @@ end
 function DeathSpectateTick()
 	for k,v in pairs(player.GetAll()) do	
 		if v.DeathSpectate == true then
+			//print("death spectating for:", v)
 			
 			local function ClickToDifTarget(ply, plyteamtable)
 				//print("attemping to switch targets")
@@ -94,7 +95,8 @@ end
 
 function GM:PlayerDeath( ply )
 	if ply:IsValidGamePlayer() == false then return end
-
+	
+	
 	ply:PrintMessage( HUD_PRINTCENTER, "Dead")
 	
 	--Remove all the player's ability ents and buffs

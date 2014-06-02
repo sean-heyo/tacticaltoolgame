@@ -390,8 +390,8 @@ function SWEP:SwingMelee( )
 		start = self.Owner:GetShootPos(),
 		endpos = self.Owner:GetShootPos() + self.Owner:GetAimVector() * self.Ref.hit_distance,
 		filter = self.Owner,
-		mins = self.Owner:OBBMins()*1.3,
-		maxs = -(self.Owner:OBBMins()*1.3)
+		mins = self.Owner:OBBMins(),
+		maxs = -(self.Owner:OBBMins())
 		} )
 
 	//CreatePosMark( (tr_hull.start + tr_hull.mins) )

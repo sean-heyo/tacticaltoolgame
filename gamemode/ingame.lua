@@ -105,6 +105,7 @@ function NextRound()
 	
 	//makes it constantly make sure atleast one person on each team is alive, otherwise end the round
 	Start_TeamsAliveCheck()
+	Start_TriggerHurtCheck()
 	
 	for k,v in pairs(player.GetAll()) do	
 		if v:Team() != TEAM_SPEC then
@@ -247,6 +248,8 @@ function CombatPhase()
 	Start_CaptureCheck()
 	
 	OpenAttackersDoors()
+	
+	End_TriggerHurtCheck()
 
 	//plays the sound of the announcer saying "fight!"
 	umsg.Start("Announcer_Fight")

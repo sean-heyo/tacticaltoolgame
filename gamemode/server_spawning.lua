@@ -86,6 +86,11 @@ end
 
 
 function GM:PlayerSelectSpawn( ply )
+	--this is used if the player falls into a trigger_hurt during setup time, he will teleport back to spawn
+	if ply.CurRoundSpawn != nil then
+		return ply.CurRoundSpawn
+	end
+
 
 	self.SpawnTable = {}
 	
@@ -149,8 +154,9 @@ function GM:PlayerSelectSpawn( ply )
 	
 
 	
-		
-		
+	--this spawn will be the player's teleport point if they fall into a trigger_hurt during setup phase
+	ply.CurRoundSpawn = ChosenSpawnPoint
+	
 	return ChosenSpawnPoint
 	
 end

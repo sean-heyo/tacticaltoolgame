@@ -472,7 +472,7 @@ imagnitude = 55,
 iradiusoverride = 200,
 takes_damage = false,
 force_radius = 128,
-force_physics_blast = 500,
+force_physics_blast = 200,
 force_player_blast = 500,
 }
 ,
@@ -481,7 +481,7 @@ force_player_blast = 500,
 ent_whistlemissile =
 {
 name = "ent_whistlemissile",
-print_name = "Missile",
+print_name = "Pellet",
 model = "models/props_junk/propanecanister001a.mdl",
 sound_hitent = "physics/metal/metal_computer_impact_bullet1.wav",
 sound_hitworld = "physics/flesh/flesh_strider_impact_bullet1.wav",

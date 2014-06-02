@@ -18,7 +18,21 @@ function ENT:DoAbility()
 		self:CooldownSound()
 	return 
 	end
-
+	
+	--the quick port cannot be used during setup by attackers, this is to fix people shooting it through the spawn exit door
+	if GetTeamRole( self.Owner:Team() ) == "Attacking" then
+		if G_CurrentPhase == "GameSetup" then
+			return 
+		elseif G_CurrentPhase == "DefendersBuy" then
+			return 
+		elseif G_CurrentPhase == "AttackersBuy" then
+			return 
+		elseif G_CurrentPhase == "Planning" then
+			return 
+		elseif G_CurrentPhase == "Setup" then
+			return 
+		end
+	end
 	
 	//ability code
 	------------------------------------------------------------------------------------------------

@@ -227,7 +227,7 @@ name = "purchase_jumppadgun",
 print_name = "Jump-Pad",
 class = "item",
 tool_name = "tool_jumppad",
-pack_amount = 2,
+pack_amount = 1,
 description = "Deploys a pad on the ground. \n If any allied player or prop comes within the pad's area, they are sent flying into the air.",
 bind_primary = "Deploy jump pad",
 }
@@ -270,11 +270,11 @@ bind_r = "Reload",
 purchase_missile =
 {
 name = "purchase_whistlemissile",
-print_name = "Missile",
+print_name = "Slow Pellet",
 class = "gun",
 tool_name = "tool_whistlemissile",
 description = "Shoots slow moving missile projectiles which hurt the target they hit. \nHurts both buildings and players. \nOnly hurts players if it has travelled at least 128 units. \nBuying multiple upgrades clipsize",
-bind_primary = "Shoot missile",
+bind_primary = "Shoot pellet",
 bind_r = "Reload",
 }
 ,

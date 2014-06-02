@@ -141,6 +141,9 @@ end
 
 
 
+
+
+
 function CheckIfTeamsAlive( )
 	--if we're in the mode where im editting code solo, for testing purposes turn off this round ending thing
 	if END_ROUND_IF_ONE_TEAM_DEAD == false then return end
@@ -199,6 +202,15 @@ end
 function End_TeamsAliveCheck()
 	hook.Remove( "Think", "CheckIfTeamsAlive" )
 end
+
+
+
+
+
+
+
+
+
 
 
 
@@ -295,6 +307,9 @@ function ResetVarsBetweenRounds()
 		
 		//Reset the information the player carries about his buffs, as well as the buffs themselves if they were on
 		Reset_PlyBuffs( v )
+		
+		//reset the player's spawn for the round
+		v.CurRoundSpawn = nil
 	end
 end
 
@@ -494,5 +509,40 @@ function ChatPrintToAll( str )
 	for _, ply in pairs(player.GetAll()) do
 		ply:ChatPrint( str )
 	end
+end
+
+
+
+
+
+
+
+/*---------------------------------------------------------
+	Trigger Hurt Check, saves players who fall into a pit during the defender's setup phase
+---------------------------------------------------------*/
+
+--if the player touches a trigger_hurt during setup time then have them instantly teleport back to spawn, and
+function TriggerHurtCheck( )
+	if G_CurrentPhase != "Setup" then return end
+	for k,ply in pairs(player.GetAll()) do
+		if ply:IsValidGamePlayer() then
+			local orgin_ents = ents.FindInSphere( ply:GetPos(), 32 )
+	
+			--teleport players who are in trigger hurts at setup
+			for k, ent in pairs( orgin_ents ) do
+				if ent:GetClass() == "trigger_hurt" then
+					ply:SetPos( ply.CurRoundSpawn:GetPos() )
+				end
+			end
+		end
+	end
+end
+
+function Start_TriggerHurtCheck()
+	hook.Add("Think", "TriggerHurtCheck", TriggerHurtCheck)
+end
+
+function End_TriggerHurtCheck()
+	hook.Remove( "Think", "TriggerHurtCheck" )
 end
 

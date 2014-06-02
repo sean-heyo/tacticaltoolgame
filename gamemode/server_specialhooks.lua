@@ -96,6 +96,15 @@ function SetEntityDamage( ent, dmginfo )
 	end
 	]]--
 
+	--trigger hurts dont deal damage during the defender's setup, they just teleport players back to their spawn
+	if G_CurrentPhase == "Setup" then
+		if dmginfo:GetInflictor():GetClass() == "trigger_hurt" and ent:IsPlayer() then
+			dmginfo:ScaleDamage( 0 )
+			return
+		end
+	end
+	
+	
 	--Disable physics damage
 	if dmginfo:IsDamageType( DMG_CRUSH ) and ent:IsPlayer() then
 		//print("taking away physics damage from player")

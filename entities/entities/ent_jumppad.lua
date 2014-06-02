@@ -83,7 +83,8 @@ end
 
 
 function ENT:Touch( hitent )
-	//print( hitent )
+	if self.Built != true then return end
+	
 	if CheckIfInEntTable( hitent ) and hitent:GetPhysicsObject():IsValid() then
 		hitent:GetPhysicsObject():SetVelocity( Vector(0,0,800))
 	end
